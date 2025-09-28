@@ -18,4 +18,5 @@ This is a task management web application that helps users organize their daily 
 .Tailwind CSS
 .Javascript
 
+![Home page screenshot](image.png)
 
