@@ -3,82 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
 </head>
 <body class="bg-gray-100 font-sans min-h-screen">
-    <!-- header -->
-    <div class="bg-gradient-to-r from-purple-600 to to-purple-800 text-white p-6">
-        <div class="max-w-4xl max-auto flex items-center justify-content-between">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <!-- linking the pages -->
-                 <a href="index.html" class="p-2 hover:bg-purple-700 rounded-lg transition-colors">
-                    <i class="fas fa-arrow-left text-xl">← Back</i>
-                 </a>
-                 <div class="text-right">
-                    <p class="text-sm" id="currentDate"></p>
-                    <p class="text-xs text-purple-200" id="currentTime"></p>
-                 </div>
+                <!-- Simple back link using <a> tag -->
+                <a href="index.html" class="p-2 hover:bg-purple-700 rounded-lg transition-colors">
+                     <i class="fas fa-arrow-left text-xl">← Back</i> 
+                </a>
+                <div>
+                    <h1 id="pageTitle" class="text-2xl font-bold">Add New Task</h1>
+                    <p class="text-purple-200">Create a new task to stay organized</p>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-sm" id="currentDate"></p>
+                <p class="text-xs text-purple-200" id="currentTime"></p>
             </div>
         </div>
-<!-- main form -->
- <div class="max-w-2xl mx-auto p-6">
-    <div class="bg-white rounded-lg shadow-lg p-8">
-        <form id="taskForm" onsubmit="saveTask(event)">
-            <!-- task name -->
-             <div class="mb-6">
-                <label class="block text-sm font-medium text-gray-700 mb-2">
-                    <i class="fas fa-tasks text-purple-600 mr-2">Task Name</i>
-                </label>
-                <input type="text" id="taskName" required
-                class="w-full p-4 boarder border-gray-300 rounded-lg focus:ring-purple-500 focus:boarder-purple-500"
-                placeholder="Enter task name">
-             </div>
-             <!-- category -->
-              <div class="mb-6">
-                <label class="block text-sm font-medium text-gray-700 mb-2">
-                    <i class="fas fa-folder text-purple-600 mr-2">Category</i>
-                </label>
-                <select id="taskCategory" required
-                class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
-                <option value="">select a category</option>
-                <option value="personal">Personal</option>
-                <option value="work">Work</option>
-                <option value="school">School</option>
-            </select>
-              </div>
-              <!-- date and time -->
-               <div class="grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
+    </div>
+
+    <!-- Main Form -->
+    <div class="max-w-2xl mx-auto p-6">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <form id="taskForm" onsubmit="saveTask(event)">
+                
+                <!-- Task Name -->
+                <div class="mb-6">
                     <label class="block text-sm font-medium text-gray-700 mb-2">
-                        <i class="fas fa-calendor text-purple-600 mr-2">Date</i>
+                        <i class="fas fa-tasks text-purple-600 mr-2"></i>Task Name
                     </label>
-                <input type="date" id="taskDate" required
-                    class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">    
+                    <input type="text" id="taskName" required
+                           class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" 
+                           placeholder="Enter your task name...">
                 </div>
-                <div>
+
+                <!-- Category -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-folder text-purple-600 mr-2"></i>Category
+                    </label>
+                    <select id="taskCategory" required
+                            class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                        <option value="">Select a category</option>
+                        <option value="personal">Personal</option>
+                        <option value="work">Work</option>
+                        <option value="school">School</option>
+                    </select>
+                </div>
+
+                <!-- Date and Time -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-calendar text-purple-600 mr-2"></i>Date
+                        </label>
+                        <input type="date" id="taskDate" required
+                               class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    </div>
+                    <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">
                             <i class="fas fa-clock text-purple-600 mr-2"></i>Time
                         </label>
                         <input type="time" id="taskTime" required
                                class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
                     </div>
-               </div>
-               <!--  buttons -->
-               <div class="flex space-x-4">
-                <!-- linking pages -->
-                 <a href="index.html"
-                 
-                class="flex-1 px-6 py-4 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold transition-colors text-center">
-<i class="fas fa-times mr-2"></i>Cancel
-                </a>
-<button type="submit" id="saveButton"
-class="flex-1 px-6 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors">
-<i class="fas fa-save mr-2"></i>Save Task
-</button>                
-               </div>  
-        </form>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex space-x-4">
+                    <!-- Simple cancel link using <a> tag -->
+                    <a href="index.html" 
+                       class="flex-1 px-6 py-4 text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold transition-colors text-center">
+                        <i class="fas fa-times mr-2"></i>Cancel
+                    </a>
+                    <button type="submit" id="saveButton"
+                            class="flex-1 px-6 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors">
+                        <i class="fas fa-save mr-2"></i>Save Task
+                    </button>
+                </div>
+            </form>
+        </div>  
     </div>
- </div>
-    </div>
+
+    <script>
+        let allTasks = [];
+        let isEditing = false;
+        let editingId = null;
+
+        // When page loads
+        window.onload = function() {
+            loadTasks();
+            updateDateTime();
+            checkIfEditing();
+            
+            // Set today's date as default
+            let today = new Date().toISOString().split('T')[0];
+            document.getElementById('taskDate').value = today;
+            
+            // Update time every second
+            setInterval(updateDateTime, 1000);
+        };
+
+        // Load tasks from storage
+        function loadTasks() {
+            let savedTasks = localStorage.getItem('myTasks');
+            if (savedTasks) {
+                allTasks = JSON.parse(savedTasks);
+            }
+        }
+
+        // Save tasks to storage
+        function saveTasks() {
+            localStorage.setItem('myTasks', JSON.stringify(allTasks));
+        }
+
+        // Update date and time display
+        function updateDateTime() {
+            let now = new Date();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Check if we're editing a task
+        function checkIfEditing() {
+            // Get the URL to see if we have ?edit=123
+            let url = new URL(window.location.href);
+            let editId = url.searchParams.get('edit');
+            
+            if (editId) {
+                // We're editing - find the task and fill the form
+                isEditing = true;
+                editingId = parseInt(editId);
+                
+                for (let i = 0; i < allTasks.length; i++) {
+                    if (allTasks[i].id === editingId) {
+                        let task = allTasks[i];
+                        
+                        // Fill the form with task data
+                        document.getElementById('taskName').value = task.name;
+                        document.getElementById('taskCategory').value = task.category;
+                        document.getElementById('taskDate').value = task.date;
+                        document.getElementById('taskTime').value = task.time;
+                        
+                        // Change page title
+                        document.getElementById('pageTitle').textContent = 'Edit Task';
+                        document.getElementById('saveButton').innerHTML = '<i class="fas fa-save mr-2"></i>Update Task';
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Save the task
+        function saveTask(event) {
+            event.preventDefault(); // Stop form from submitting normally
+            
+            // Get form data
+            let name = document.getElementById('taskName').value;
+            let category = document.getElementById('taskCategory').value;
+            let date = document.getElementById('taskDate').value;
+            let time = document.getElementById('taskTime').value;
+            
+            // Check if all fields are filled
+            if (!name || !category || !date || !time) {
+                alert('Please fill in all fields!');
+                return;
+            }
+            
+            if (isEditing) {
+                // Update existing task
+                for (let i = 0; i < allTasks.length; i++) {
+                    if (allTasks[i].id === editingId) {
+                        allTasks[i].name = name;
+                        allTasks[i].category = category;
+                        allTasks[i].date = date;
+                        allTasks[i].time = time;
+                        break;
+                    }
+                }
+                showMessage('Task updated successfully!');
+            } else {
+                // Create new task
+                let newTask = {
+                    id: Date.now(), // Simple way to create unique ID
+                    name: name,
+                    category: category,
+                    date: date,
+                    time: time,
+                    completed: false
+                };
+                
+                allTasks.push(newTask);
+                showMessage('Task created successfully!');
+            }
+            
+            saveTasks();
+            
+            // Go back to main page after 1 second
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 1000);
+        }
+
+        // Fill form with quick task data
+        function fillQuickTask(name, category, time) {
+            document.getElementById('taskName').value = name;
+            document.getElementById('taskCategory').value = category;
+            document.getElementById('taskTime').value = time;
+        }
+
+        // Show success message
+        function showMessage(text) {
+            let message = document.createElement('div');
+            message.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg';
+            message.innerHTML = '<i class="fas fa-check mr-2"></i>' + text;
+            document.body.appendChild(message);
+            
+            setTimeout(function() {
+                message.remove();
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
