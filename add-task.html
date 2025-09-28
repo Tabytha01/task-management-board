@@ -33,6 +33,36 @@
                 class="w-full p-4 boarder border-gray-300 rounded-lg focus:ring-purple-500 focus:boarder-purple-500"
                 placeholder="Enter task name">
              </div>
+             <!-- category -->
+              <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                    <i class="fas fa-folder text-purple-600 mr-2">Category</i>
+                </label>
+                <select id="taskCategory" required
+                class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                <option value="">select a category</option>
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="school">School</option>
+            </select>
+              </div>
+              <!-- date and time -->
+               <div class="grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-calendor text-purple-600 mr-2">Date</i>
+                    </label>
+                <input type="date" id="taskDate" required
+                    class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">    
+                </div>
+                <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-clock text-purple-600 mr-2"></i>Time
+                        </label>
+                        <input type="time" id="taskTime" required
+                               class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                    </div>
+               </div>
         </form>
     </div>
  </div>
