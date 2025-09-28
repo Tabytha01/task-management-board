@@ -15,4 +15,7 @@ This is a task management web application that helps users organize their daily 
 
 # Technologies Used
 .HTML5
+.Tailwind CSS
+.Javascript
+
 
