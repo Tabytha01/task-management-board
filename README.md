@@ -17,7 +17,6 @@ This is a task management web application that helps users organize their daily 
 .HTML5
 .Tailwind CSS
 .Javascript
-https://tabytha01.github.io/task-management-board/
 
 ![Home page screenshot](image.png)
 
