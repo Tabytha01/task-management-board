@@ -9,4 +9,10 @@ This is a task management web application that helps users organize their daily 
 .Delete Tasks
 .Task Completion
 .Task Categories
+.Data Persistence
+.Responsive Design
+.Real timecLOCK
+
+# Technologies Used
+.HTML5
 
